@@ -6,7 +6,8 @@ module.exports.getConfig = () => {
         clientId: process.env.PAXFUL_CLIENT_ID,
         clientSecret: process.env.PAXFUL_API_SECRET,
         offerHashes: process.env.OFFER_HASHES,
-        messageText: process.env.PAXFUL_AUTOGREETING_MESSAGE,
+        //messageText: process.env.PAXFUL_AUTOGREETING_MESSAGE,
+        messageText: process.env.PAXFUL_AUTOGREETING_MESSAGE.replace(/\. /g, '.\n\n'),
         messageDelay: parseInt(process.env.PAXFUL_AUTOGREETING_DELAY) || 1000,
         serverPort: process.env.SERVER_PORT || 3000
     }
