@@ -13,6 +13,8 @@ module.exports.getConfig = () => {
             process.env.PAXFUL_AUTOGREETING_MESSAGE_1.replace(/\\n/g, '\n'),
             process.env.PAXFUL_AUTOGREETING_MESSAGE_2.replace(/\\n/g, '\n'),
             process.env.PAXFUL_AUTOGREETING_MESSAGE_3.replace(/\\n/g, '\n'),
+            process.env.PAXFUL_AUTOGREETING_MESSAGE_4.replace(/\\n/g, '\n'),
+            process.env.PAXFUL_AUTOGREETING_MESSAGE_5.replace(/\\n/g, '\n'),
             // Add more if needed
         ],
         messageDelay: parseInt(process.env.PAXFUL_AUTOGREETING_DELAY) || 1000,
