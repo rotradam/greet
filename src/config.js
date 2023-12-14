@@ -10,11 +10,11 @@ module.exports.getConfig = () => {
         //messageText: process.env.PAXFUL_AUTOGREETING_MESSAGE.replace(/\\n/g, '\n'), //current, also works
         //messageText: process.env.PAXFUL_AUTOGREETING_MESSAGE.replace(/\\n/g, '\n'), //try2 //good
         messages: [
-            process.env.PAXFUL_AUTOGREETING_MESSAGE_1.replace(/\\n/g, '\n'),
-            process.env.PAXFUL_AUTOGREETING_MESSAGE_2.replace(/\\n/g, '\n'),
-            process.env.PAXFUL_AUTOGREETING_MESSAGE_3.replace(/\\n/g, '\n'),
-            process.env.PAXFUL_AUTOGREETING_MESSAGE_4.replace(/\\n/g, '\n'),
-            process.env.PAXFUL_AUTOGREETING_MESSAGE_5.replace(/\\n/g, '\n'),
+            process.env.PAXFUL_AUTOGREETING_MESSAGE_1 && process.env.PAXFUL_AUTOGREETING_MESSAGE_1.replace(/\\n/g, '\n'),
+            process.env.PAXFUL_AUTOGREETING_MESSAGE_2 && process.env.PAXFUL_AUTOGREETING_MESSAGE_2.replace(/\\n/g, '\n'),
+            process.env.PAXFUL_AUTOGREETING_MESSAGE_3 &&process.env.PAXFUL_AUTOGREETING_MESSAGE_3.replace(/\\n/g, '\n'),
+            process.env.PAXFUL_AUTOGREETING_MESSAGE_4 && process.env.PAXFUL_AUTOGREETING_MESSAGE_4.replace(/\\n/g, '\n'),
+            process.env.PAXFUL_AUTOGREETING_MESSAGE_5 && process.env.PAXFUL_AUTOGREETING_MESSAGE_5.replace(/\\n/g, '\n'),
             // Add more if needed
         ],
         messageDelay: parseInt(process.env.PAXFUL_AUTOGREETING_DELAY) || 1000,
@@ -31,15 +31,15 @@ module.exports.getConfig = () => {
         throw new Error(error.join(' '));
     }
 
-    if (!config.messageText) {
-        const error = [
-            'Environment variable "PAXFUL_AUTOGREETING_MESSAGE" is not defined or empty.',
-            'Please set this variable with a message that you would like the bot to send',
-            'when a new trade is started upon your offer(s).'
-        ];
-
-        throw new Error(error.join(''))
-    }
+//    if (!config.messageText) {
+//        const error = [
+//            'Environment variable "PAXFUL_AUTOGREETING_MESSAGE" is not defined or empty.',
+//            'Please set this variable with a message that you would like the bot to send',
+//            'when a new trade is started upon your offer(s).'
+//        ];
+//
+//        throw new Error(error.join(''))
+//    }
 
     if (config.offerHashes) {
         config.offerHashes = config.offerHashes.split(',').map(v => v.trim())
