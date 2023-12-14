@@ -6,13 +6,22 @@ const sleep = async (ms) => {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+// In index.js
 const handlers = {
     'trade.started': async (tradeHash, paxfulApi, config) => {
-        await sleep(config.messageDelay);
-
-        await paxfulApi.sendMessage(tradeHash, config.messageText);
+        for (const message of config.messages) {
+            await paxfulApi.sendMessage(tradeHash, message);
+            await sleep(config.messageDelay);
+        }
     }
 }
+//const handlers = {
+//    'trade.started': async (tradeHash, paxfulApi, config) => {
+//        await sleep(config.messageDelay);
+//
+//        await paxfulApi.sendMessage(tradeHash, config.messageText);
+//    }
+//}
 
 // No problem keeping to have it in-memory. Even if process is restarted we can easily rebuild it
 const tradeToOfferMap = {};
