@@ -10,11 +10,17 @@ module.exports.getConfig = () => {
         //messageText: process.env.PAXFUL_AUTOGREETING_MESSAGE.replace(/\\n/g, '\n'), //current, also works
         //messageText: process.env.PAXFUL_AUTOGREETING_MESSAGE.replace(/\\n/g, '\n'), //try2 //good
         messages: [
-            process.env.PAXFUL_AUTOGREETING_MESSAGE_1 && process.env.PAXFUL_AUTOGREETING_MESSAGE_1.replace(/\\n/g, '\n'),
-            process.env.PAXFUL_AUTOGREETING_MESSAGE_2 && process.env.PAXFUL_AUTOGREETING_MESSAGE_2.replace(/\\n/g, '\n'),
-            process.env.PAXFUL_AUTOGREETING_MESSAGE_3 &&process.env.PAXFUL_AUTOGREETING_MESSAGE_3.replace(/\\n/g, '\n'),
-            process.env.PAXFUL_AUTOGREETING_MESSAGE_4 && process.env.PAXFUL_AUTOGREETING_MESSAGE_4.replace(/\\n/g, '\n'),
-            process.env.PAXFUL_AUTOGREETING_MESSAGE_5 && process.env.PAXFUL_AUTOGREETING_MESSAGE_5.replace(/\\n/g, '\n'),
+            //process.env.PAXFUL_AUTOGREETING_MESSAGE_1 && process.env.PAXFUL_AUTOGREETING_MESSAGE_1.replace(/\\n/g, '\n'),
+            //process.env.PAXFUL_AUTOGREETING_MESSAGE_2 && process.env.PAXFUL_AUTOGREETING_MESSAGE_2.replace(/\\n/g, '\n'),
+            //process.env.PAXFUL_AUTOGREETING_MESSAGE_3 &&process.env.PAXFUL_AUTOGREETING_MESSAGE_3.replace(/\\n/g, '\n'),
+            //process.env.PAXFUL_AUTOGREETING_MESSAGE_4 && process.env.PAXFUL_AUTOGREETING_MESSAGE_4.replace(/\\n/g, '\n'),
+            //process.env.PAXFUL_AUTOGREETING_MESSAGE_5 && process.env.PAXFUL_AUTOGREETING_MESSAGE_5.replace(/\\n/g, '\n'),
+
+            process.env.PAXFUL_AUTOGREETING_MESSAGE_1,
+            process.env.PAXFUL_AUTOGREETING_MESSAGE_2,
+            process.env.PAXFUL_AUTOGREETING_MESSAGE_3,
+            process.env.PAXFUL_AUTOGREETING_MESSAGE_4,
+            process.env.PAXFUL_AUTOGREETING_MESSAGE_5,
             // Add more if needed
         ],
         messageDelay: parseInt(process.env.PAXFUL_AUTOGREETING_DELAY) || 1000,
