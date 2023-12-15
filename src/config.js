@@ -21,9 +21,12 @@ module.exports.getConfig = () => {
             process.env.PAXFUL_AUTOGREETING_MESSAGE_3,
             process.env.PAXFUL_AUTOGREETING_MESSAGE_4,
             process.env.PAXFUL_AUTOGREETING_MESSAGE_5,
+            process.env.PAXFUL_AUTOGREETING_MESSAGE_6,
+            process.env.PAXFUL_AUTOGREETING_MESSAGE_7,
+            process.env.PAXFUL_AUTOGREETING_MESSAGE_8,
             // Add more if needed
         ],
-        messageDelay: parseInt(process.env.PAXFUL_AUTOGREETING_DELAY) || 1000,
+        messageDelay: parseInt(process.env.PAXFUL_AUTOGREETING_DELAY) || 4000,
         serverPort: process.env.SERVER_PORT || 3000
     }
 
