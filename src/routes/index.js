@@ -6,10 +6,17 @@ const sleep = async (ms) => {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+const getRandomDelay = () => {
+    const min = 3;
+    const max = 8;
+    return Math.floor(Math.random() * (max - min + 1) + min) * 1000;
+}
+
 // In index.js
 const handlers = {
     'trade.started': async (tradeHash, paxfulApi, config) => {
         for (const message of config.messages) {
+            await sleep(getRandomDelay());
             await paxfulApi.sendMessage(tradeHash, message);
             await sleep(config.messageDelay);
         }
