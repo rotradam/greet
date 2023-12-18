@@ -1,6 +1,12 @@
 const dotenv = require('dotenv');
 dotenv.config();
 
+const getRandomDelay = () => {
+    const min = 5;
+    const max = 8;
+    return Math.floor(Math.random() * (max - min + 1) + min) * 1000;
+}
+
 module.exports.getConfig = () => {
     const config = {
         clientId: process.env.PAXFUL_CLIENT_ID,
@@ -10,23 +16,17 @@ module.exports.getConfig = () => {
         //messageText: process.env.PAXFUL_AUTOGREETING_MESSAGE.replace(/\\n/g, '\n'), //current, also works
         //messageText: process.env.PAXFUL_AUTOGREETING_MESSAGE.replace(/\\n/g, '\n'), //try2 //good
         messages: [
-            //process.env.PAXFUL_AUTOGREETING_MESSAGE_1 && process.env.PAXFUL_AUTOGREETING_MESSAGE_1.replace(/\\n/g, '\n'),
-            //process.env.PAXFUL_AUTOGREETING_MESSAGE_2 && process.env.PAXFUL_AUTOGREETING_MESSAGE_2.replace(/\\n/g, '\n'),
-            //process.env.PAXFUL_AUTOGREETING_MESSAGE_3 &&process.env.PAXFUL_AUTOGREETING_MESSAGE_3.replace(/\\n/g, '\n'),
-            //process.env.PAXFUL_AUTOGREETING_MESSAGE_4 && process.env.PAXFUL_AUTOGREETING_MESSAGE_4.replace(/\\n/g, '\n'),
-            //process.env.PAXFUL_AUTOGREETING_MESSAGE_5 && process.env.PAXFUL_AUTOGREETING_MESSAGE_5.replace(/\\n/g, '\n'),
-
-            process.env.PAXFUL_AUTOGREETING_MESSAGE_1,
-            process.env.PAXFUL_AUTOGREETING_MESSAGE_2,
-            process.env.PAXFUL_AUTOGREETING_MESSAGE_3,
-            process.env.PAXFUL_AUTOGREETING_MESSAGE_4,
-            process.env.PAXFUL_AUTOGREETING_MESSAGE_5,
-            process.env.PAXFUL_AUTOGREETING_MESSAGE_6,
-            process.env.PAXFUL_AUTOGREETING_MESSAGE_7,
-            process.env.PAXFUL_AUTOGREETING_MESSAGE_8,
-            // Add more if needed
-        ],
-        messageDelay: parseInt(process.env.PAXFUL_AUTOGREETING_DELAY) || 15000,
+            process.env.PAXFUL_AUTOGREETING_MESSAGE_1 && process.env.PAXFUL_AUTOGREETING_MESSAGE_1.replace(/\\n/g, '\n'),
+            process.env.PAXFUL_AUTOGREETING_MESSAGE_2 && process.env.PAXFUL_AUTOGREETING_MESSAGE_2.replace(/\\n/g, '\n'),
+            process.env.PAXFUL_AUTOGREETING_MESSAGE_3 && process.env.PAXFUL_AUTOGREETING_MESSAGE_3.replace(/\\n/g, '\n'),
+            process.env.PAXFUL_AUTOGREETING_MESSAGE_4 && process.env.PAXFUL_AUTOGREETING_MESSAGE_4.replace(/\\n/g, '\n'),
+            process.env.PAXFUL_AUTOGREETING_MESSAGE_5 && process.env.PAXFUL_AUTOGREETING_MESSAGE_5.replace(/\\n/g, '\n'),
+            process.env.PAXFUL_AUTOGREETING_MESSAGE_6 && process.env.PAXFUL_AUTOGREETING_MESSAGE_6.replace(/\\n/g, '\n'),
+            process.env.PAXFUL_AUTOGREETING_MESSAGE_7 && process.env.PAXFUL_AUTOGREETING_MESSAGE_7.replace(/\\n/g, '\n'),
+            process.env.PAXFUL_AUTOGREETING_MESSAGE_8 && process.env.PAXFUL_AUTOGREETING_MESSAGE_8.replace(/\\n/g, '\n'),
+        ].filter(Boolean),
+        messageDelay: getRandomDelay(),
+        // messageDelay: parseInt(process.env.PAXFUL_AUTOGREETING_DELAY) || 10000,
         serverPort: process.env.SERVER_PORT || 3000
     }
 

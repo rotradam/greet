@@ -18,7 +18,8 @@ const handlers = {
         for (const message of config.messages) {
             await sleep(getRandomDelay());
             await paxfulApi.sendMessage(tradeHash, message);
-            await sleep(config.messageDelay);
+            await sleep(getRandomDelay());
+            // await sleep(config.messageDelay);
         }
     }
 }
